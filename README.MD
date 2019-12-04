@@ -8,3 +8,4 @@ El objetivo de esta aplicacion es que cuando se crea una tarea, se vayan guardan
 -Al momento de crear una tarea, se guardara en un fichero.
 
 Antes de crear se va a cargar la Base de datos (simulada)
+Solo lista las tareas que tengan el estado false.

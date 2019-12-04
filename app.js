@@ -14,8 +14,7 @@ switch (comando) {
     case 'listar':
         let lista = tareas.getLista(argv.completado);
         if (lista === false) {
-            console.log("No se encuentran tareas con el párametro indicado");
-            break;
+
         }
         console.log(lista);
         break;
