@@ -10,18 +10,6 @@ const completado = {
     desc: "Marca como completada o pendiente la tarea"
 };
 
-const hechas = {
-    default: true,
-    alias: 't',
-    desc: "Lista tareas hechas"
-};
-
-const noHechas = {
-    default: true,
-    alias: 'f',
-    desc: "Lista tareas no hechas"
-};
-
 const argv = require('yargs')
     .command('crear', 'Crear una tarea', {
         descripcion
@@ -33,13 +21,8 @@ const argv = require('yargs')
     .command('borrar', 'Elimina una tarea', {
         descripcion
     })
-    .command('listarTrue', 'Lista tarea hecha', {
-        descripcion,
-        hechas
-    })
-    .command('listarFalse', 'Lista tarea no hecha', {
-        descripcion,
-        noHechas
+    .command('listar', 'Listar Tareas', {
+        completado
     })
     .help()
     .argv;

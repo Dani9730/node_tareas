@@ -2,17 +2,15 @@
 const fs = require('fs'); //modulo file system, nos permite acceder al sistema de ficheros 
 
 let tareasPorHacer = []; //creo un vector vacio
-
 //cargarBD() que lee un archivo json
 const cargarDB = () => {
-    try {
-        tareasPorHacer = require('../db/data.json'); //requerir la informacion que esta en el json
-    } catch (error) {
-        tareasPorHacer = []; //y guardamos como un vector
+        try {
+            tareasPorHacer = require('../db/data.json');
+        } catch (error) {
+            tareasPorHacer = [];
+        }
     }
-}
-
-//guardarDB que guarda en un archivo JSON los datos que estan dentro del vector 
+    //guardarDB que guarda en un archivo JSON los datos que estan dentro del vector 
 const guardarDB = () => {
         //data va guardar lo que tiene el vector en formato json
         //JSON.stringify nos ayuda a guardar el vector en formato json
@@ -40,25 +38,36 @@ const crear = (descripcion) => {
         return tarea;
     }
     // esta funcion es para obtener la lista
-const getLista = () => {
+const getLista = (status) => {
         //llamamos a la funcion cargar DB
         cargarDB();
-        return tareasPorHacer;
+        var lista;
+        try {
+
+            lista = tareasPorHacer.filter(tarea => tarea.completado === eval(status));
+
+        } catch (err) {
+            return false;
+        }
+        if (lista.length === 0) {
+            return false;
+        } else {
+            return lista;
+        }
     }
-    //funcion actualizar la descripcion es obligatoria 
+    //funcion actualizar
 const actualizar = (descripcion, completado = true) => {
     cargarDB();
-    //findIndex nos devuelve el indice que coincida con el criterio de busqueda
-    //si la tarea.descripcion es igual a descripcion nos va devolver el index de la tarea
+
     let index = tareasPorHacer.findIndex(tarea => tarea.descripcion === descripcion);
-    //verificamos si encontro o no la tarea
+
     if (index >= 0) {
-        //posicion index 
         tareasPorHacer[index].completado = completado;
         guardarDB();
         return true;
     }
     return false;
+
 }
 
 const borrar = (descripcion) => {

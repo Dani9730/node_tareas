@@ -1,6 +1,6 @@
 const argv = require('./config/yargs').argv;
 const tareas = require('./controlador/tareas-por-hacer');
-const colors = require('colors'); //funcion de colores
+const colors = require('colors');
 
 let comando = argv._[0];
 
@@ -12,13 +12,15 @@ switch (comando) {
 
         break;
     case 'listar':
-        let listado = tareas.getLista();
-        for (let tarea of listado) {
-            console.log("======= TAREAS =====".green);
-            console.log(tarea.descripcion);
-            console.log("Estado: ", tarea.completado);
+        let lista = tareas.getLista(argv.completado);
+        if (lista === false) {
+            console.log("No se encuentran tareas con el párametro indicado");
+            break;
         }
+        console.log(lista);
         break;
+
+
     case 'actualizar':
         let actualizado = tareas.actualizar(argv.descripcion, argv.completado);
         console.log(actualizado);
