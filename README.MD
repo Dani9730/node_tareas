@@ -28,15 +28,23 @@ Solo lista las tareas que tengan el estado false.
 
 
 ## Ejecución ⚙️
+Crear tareas
 ```
 node app crear -d "Hacer deberes"
 ```
+Actualizar tareas
 ```
 node app actualizar -d "Hacer deberes" -c true
 ```
+Listar tareas
 ```
 node app listar -l false
 
+```
+Borrar tareas
+
+```
+node app borrar -d "Hacer deberes"
 ```
 ## Construido con 🛠️
 
