@@ -24,10 +24,11 @@ Solo lista las tareas que tengan el estado false.
 1. npm init para crear un proyecto npm 
 ```
 2. npm install --save yargs colors para dependencias obligatorias
-```
+
 
 
 ## Ejecución ⚙️
+
 Crear tareas
 ```
 node app crear -d "Hacer deberes"
