@@ -1,3 +1,5 @@
+//configuracion de comandos
+
 const descripcion = {
     demand: true,
     alias: 'd',
@@ -5,11 +7,18 @@ const descripcion = {
 };
 
 const completado = {
-    default: true,
+    demand: true,
     alias: 'c',
     desc: "Marca como completada o pendiente la tarea"
 };
 
+const listar = {
+    demand: true,
+    alias: 'l',
+    desc: "Lista las tareas si estan hechas o no"
+};
+
+//.comand('nombre','mensaje de ayuda')
 const argv = require('yargs')
     .command('crear', 'Crear una tarea', {
         descripcion
@@ -22,11 +31,12 @@ const argv = require('yargs')
         descripcion
     })
     .command('listar', 'Listar Tareas', {
-        completado
+        listar
     })
     .help()
     .argv;
 
+//hay que exportar
 module.exports = {
     argv
 }

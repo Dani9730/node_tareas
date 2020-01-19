@@ -1,3 +1,4 @@
+//importar yargs y colors
 const argv = require('./config/yargs').argv;
 const tareas = require('./controlador/tareas-por-hacer');
 const colors = require('colors');
@@ -12,13 +13,16 @@ switch (comando) {
 
         break;
     case 'listar':
-        let lista = tareas.getLista(argv.completado);
-        if (lista === false) {
-
+        let listadob = argv.listar === 'true';
+        let listado = tareas.getLista();
+        for (let tarea of listado) {
+            if (tarea.completado === listadob) {
+                console.log("======= POR HACER =====".green);
+                console.log(tarea.descripcion);
+                console.log("Estado: ", tarea.completado);
+            }
         }
-        console.log(lista);
         break;
-
 
     case 'actualizar':
         let actualizado = tareas.actualizar(argv.descripcion, argv.completado);

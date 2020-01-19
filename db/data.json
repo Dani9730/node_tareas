@@ -1,1 +1,1 @@
-[{"descripcion":"Cantar","completado":"true"},{"descripcion":"Bailar","completado":"true"},{"descripcion":"Jugar","completado":"true"},{"descripcion":"Dormir","completado":false}]
+[{ "descripcion": "Ver netflix", "completado": false }, { "descripcion": "Ver series", "completado": false }, { "descripcion": "Bailar", "completado": "true" }, { "descripcion": "Dormir", "completado": false }, { "descripcion": "Cantar", "completado": false }]
